@@ -1,60 +1,91 @@
-# LED Chaser (First Arduino Project)
+💡 LED Chaser (First Arduino Project)
 
-This project uses ten LEDs connected to an Arduino Uno to create a chasing light effect.  
-It was my very first hands-on Arduino project and marks the starting point of my embedded systems learning journey.
+This project uses ten LEDs connected to an Arduino Uno to create a chasing light effect.
+It was my first hands-on Arduino project, marking the start of my embedded systems learning journey and helping me understand how microcontrollers control real hardware.
 
-## 🧠 Concept
+🧠 Concept
 
-The goal was to understand how to control digital outputs and use delays to create motion-like light patterns.  
-Each LED turns on and off in sequence to simulate movement from left to right, then back again.
+The goal was to learn how to control digital output pins, sequence LEDs, and use timing with the delay() function to simulate motion.
+Each LED lights up in sequence, moving from left to right and then back again, creating a continuous “chase” pattern.
 
-## ⚙️ Components Used
+⚙️ Components Used
+Component	Quantity	Description
+Arduino Uno	1	Main microcontroller board
+LED	10	5mm red LEDs
+Resistor	10	220Ω each (to prevent LED damage)
+Breadboard	1	For circuit assembly
+Jumper Wires	~20	To connect LEDs and resistors
 
-- Arduino Uno  
-- 10 × LEDs  
-- 10 × 220Ω resistors  
-- Breadboard and jumper wires  
+💡 Note: Each LED uses a 220Ω resistor to limit current and protect it from burning out.
 
-## 🔌 Pin Connections
+🔌 Pin Connections
+LED	Arduino Pin
+1	13
+2	12
+3	11
+4	10
+5	9
+6	8
+7	7
+8	6
+9	5
+10	4
+🧩 How It Works
 
-| LED | Arduino Pin |
-|-----|--------------|
-| 1 | 13 |
-| 2 | 12 |
-| 3 | 11 |
-| 4 | 10 |
-| 5 | 9 |
-| 6 | 8 |
-| 7 | 7 |
-| 8 | 6 |
-| 9 | 5 |
-| 10 | 4 |
+Each LED turns on briefly before the next one.
 
-## 🧩 How It Works
+The pattern moves forward (LED1 → LED10) and then backward (LED10 → LED1).
 
-Each LED turns on briefly before the next one, creating a flowing light effect.  
-The sequence goes forward from LED1 to LED10 and then backward, repeating indefinitely.  
-The delays at the start and end are slightly longer for visual emphasis.
+Slightly longer delays at the ends give the pattern a smoother looping effect.
 
-## 🚀 Lessons Learned
+The sequence repeats indefinitely.
 
-- How to control multiple digital pins  
-- How timing and sequencing work using `delay()`  
-- How to read and debug circuits on a breadboard  
-- The importance of documenting code and circuit connections
+🪛 How I Built It
 
-## 🔭 Future Improvements
+Placed 10 LEDs in a line on the breadboard.
 
-This project will stay exactly as it was when first built.  
-It represents a baseline to compare with later versions that will:
-- Use arrays and loops for cleaner code  
-- Add brightness control using PWM (`analogWrite`)  
-- Include interactive elements like buttons or sensors  
+Connected the anodes (long legs) to Arduino pins 13–4 using jumper wires.
 
-## 📸 Circuit Diagram / Demo
+Connected the cathodes (short legs) to ground through 220Ω resistors.
 
-*(You can add a picture or short video of your circuit here)*  
+Uploaded the C++ code using the Arduino IDE via USB.
 
----
+Adjusted delay times to make the chase look natural.
 
-> **Note:** This was my first hardware project — it’s intentionally kept in its original form to show my learning progress over time.
+Issues encountered:
+
+Some LEDs didn’t light at first because the breadboard power rails weren’t linked across sections.
+
+Adding resistors fixed brightness and stability issues.
+
+💬 Code Overview
+
+The current code uses repeated LED on/off blocks with delays.
+Each block executes the same sequence logic manually.
+Future versions will simplify this using loops and functions for cleaner execution.
+
+🚀 Lessons Learned
+
+How to control multiple digital outputs with Arduino
+
+How timing and sequencing affect circuit behavior
+
+The importance of using resistors to protect components
+
+How to document a project clearly for others to understand
+
+🔭 Future Improvements
+
+This project will remain unchanged as a record of my starting point.
+Future versions will include:
+
+Arrays and for loops for compact code
+
+PWM brightness control
+
+Buttons or sensors for interactive control
+
+🌿 Branching Practice
+
+This README update was created on a new branch (readme-update) before merging into main.
+This keeps the repository clean and follows standard Git workflow practices.
