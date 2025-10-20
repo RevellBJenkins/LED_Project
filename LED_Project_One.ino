@@ -1,124 +1,35 @@
-// LED Pins
-const int led1 = 13;
-const int led2 = 12;
-const int led3 = 11;
-const int led4 = 10;
-const int led5 = 9;
-const int led6 = 8;
-const int led7 = 7;
-const int led8 = 6;
-const int led9 = 5;
-const int led10 = 4;
-
+// Define LED pins in an array
+const int leds[] = {13, 12, 11, 10, 9, 8, 7, 6, 5, 4};
+const int numLeds = sizeof(leds) / sizeof(leds[0]);
 
 void setup() {
-  // Set pins as output
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
-  pinMode(led3, OUTPUT);
-  pinMode(led4, OUTPUT);
-  pinMode(led5, OUTPUT);
-  pinMode(led6, OUTPUT);
-  pinMode(led7, OUTPUT);
-  pinMode(led8, OUTPUT);
-  pinMode(led9, OUTPUT);
-  pinMode(led10, OUTPUT);
+  // Set all LED pins as output using a loop
+  for (int i = 0; i < numLeds; i++) {
+    pinMode(leds[i], OUTPUT);
+  }
 }
 
 void loop() {
-  // Turn on LED 1
-  digitalWrite(led1, HIGH);
+  // Light up LEDs 1 to 10
+  digitalWrite(leds[0], HIGH); // LED 1
   delay(500);
-  digitalWrite(led1, LOW);
+  digitalWrite(leds[0], LOW);
 
-  // Turn on LED 2
-  digitalWrite(led2, HIGH);
-  delay(100);
-  digitalWrite(led2, LOW);
+  for (int i = 1; i < 9; i++) { // LEDs 2 to 9
+    digitalWrite(leds[i], HIGH);
+    delay(100);
+    digitalWrite(leds[i], LOW);
+  }
 
-  // Turn on LED 3
-  digitalWrite(led3, HIGH);
-  delay(100);
-  digitalWrite(led3, LOW);
-
-    // Turn on LED 4
-  digitalWrite(led4, HIGH);
-  delay(100);
-  digitalWrite(led4, LOW);
-
-  // Turn on LED 5
-  digitalWrite(led5, HIGH);
-  delay(100);
-  digitalWrite(led5, LOW);
-
-  // Turn on LED 6
-  digitalWrite(led6, HIGH);
-  delay(100);
-  digitalWrite(led6, LOW);
-
-    // Turn on LED 7
-  digitalWrite(led7, HIGH);
-  delay(100);
-  digitalWrite(led7, LOW);
-
-  // Turn on LED 8 
-  digitalWrite(led8, HIGH);
-  delay(100);
-  digitalWrite(led8, LOW);
-
-  // Turn on LED 9
-  digitalWrite(led9, HIGH);
-  delay(100);
-  digitalWrite(led9, LOW);
-
-    // Turn on LED 10
-  digitalWrite(led10, HIGH);
+  digitalWrite(leds[9], HIGH); // LED 10
   delay(500);
-  digitalWrite(led10, LOW);
+  digitalWrite(leds[9], LOW);
 
-  // Turn on LED 9
-  digitalWrite(led9, HIGH);
-  delay(100);
-  digitalWrite(led9, LOW);
-
-  // Turn on LED 7
-  digitalWrite(led7, HIGH);
-  delay(100);
-  digitalWrite(led7, LOW);
-
-  // Turn on LED 5
-  digitalWrite(led5, HIGH);
-  delay(100);
-  digitalWrite(led5, LOW);
-
-  // Turn on LED 3
-  digitalWrite(led3, HIGH);
-  delay(100);
-  digitalWrite(led3, LOW);
-
-  // Turn on LED 2
-  digitalWrite(led2, HIGH);
-  delay(100);
-  digitalWrite(led2, LOW);
-
-  // Turn on LED 4
-  digitalWrite(led4, HIGH);
-  delay(100);
-  digitalWrite(led4, LOW);
-
-  // Turn on LED 6
-  digitalWrite(led6, HIGH);
-  delay(100);
-  digitalWrite(led6, LOW);
-
-  // Turn on LED 8
-  digitalWrite(led8, HIGH);
-  delay(100);
-  digitalWrite(led8, LOW);
-
-  // Turn on LED 10
-  digitalWrite(led10, HIGH);
-  delay(100);
-  digitalWrite(led10, LOW);
-
+  // Reverse pattern
+  int reverseOrder[] = {8, 6, 4, 2, 1, 3, 5, 7, 9}; // Indexes of leds[]
+  for (int i = 0; i < sizeof(reverseOrder) / sizeof(reverseOrder[0]); i++) {
+    digitalWrite(leds[reverseOrder[i]], HIGH);
+    delay(100);
+    digitalWrite(leds[reverseOrder[i]], LOW);
+  }
 }
